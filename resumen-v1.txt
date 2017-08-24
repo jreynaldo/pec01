@@ -1,0 +1,7 @@
+ESTADISTICAS: 
+
+Comunidad: 01 Trebol
+Numero de Zonas		: 3
+Numero de Propiedades	: 19
+Numero de Propietarios	: 15
+Numero de Gastos	: 13

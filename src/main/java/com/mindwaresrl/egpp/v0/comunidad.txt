@@ -1,0 +1,46 @@
+#Comunidad
+01;Trebol;Temporal
+
+#Zona
+E;Escalera;P
+G;Garaje;I
+C;Zona Comun;P
+
+#Propiedad
+L;0-A;80;04;E-8;Banco Mundial;Banca
+L;0-B;90;05;E-9;Hercules;Seguros
+L;0-C;90;06;E-9;Caprabo;Alimentacion
+D;1-A;90;07;E-9,C-12;VH;2
+D;1-B;100;08;E-10,C-14;VH;3
+D;1-C;100;09;E-10,C-14;VNH;3
+D;2-A;150;01;E-15,C-20;VH;4
+D;2-B;150;02;E-15,C-20;VH;4
+D;2-C;150;03;E-15,C-20;VNH;4
+G;P01;12;14;G-10;A;N
+G;P02;12;15;G-10;A;N
+G;P03;15;01;G-10;A;S
+G;P04;15;02;G-10;A;S
+G;P05;15;03;G-10;A;S
+G;P06;15;04;G-10;C;N
+G;P07;15;10;G-10;C;N
+G;P08;15;11;G-10;C;N
+G;P09;15;12;G-10;C;N
+G;P10;15;13;G-10;C;N
+
+#Propietario
+01;Jorge Salas;Sopocachi (La Paz);jsalas@dominio.com
+02;Jaime Rodriguez;Sacaba (Cochabamba);jrodriguez@dominio.com
+03;Nestor Crespo;Temporal (Cochabamba);ncrespo@dominio.com
+04;Maria Gutierrez;Temporal (Cochabamba);mgutierrez@dominio.com
+05;Miguel Palacios;Temporal (Cochabamba);mpalacios@dominio.com
+06;Nuria Mas;Temporal (Cochabamba);nmas@dominio.com
+07;Ricardo Torres;Temporal (Cochabamba);rtorres@dominio.com
+08;Tomas Asensio;Temporal (Cochabamba);tasensio@dominio.com
+09;Enrique Alos;Temporal (Cochabamba);ealos@dominio.com
+10;Pedro Navarra;Temporal (Cochabamba);pnavarra@dominio.com
+11;Sergio Briban;Temporal (Cochabamba);sbriban@dominio.com
+12;Carlos Escudero;Temporal (Cochabamba);cescudero@dominio.com
+13;Ruben Palencia;Temporal (Cochabamba);rpalencia@dominio.com
+14;Paula Cabos;Temporal (Cochabamba);pcabos@dominio.com
+15;Juan Tenorio;Temporal (Cochabamba);jtenorio@dominio.com
+.El presidente de la comunidad del año 2015 es 04 Maria Gutierrez

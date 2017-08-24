@@ -1,0 +1,17 @@
+Cod  m2  C. Nombre Propietario                       Cuotas         Informacion Adicional                   
+------------------------------------------------------------------------------------------------------------
+0-A   80 04 Maria Gutierrez                          8%E            Banco Mundial,Banca
+0-B   90 05 Miguel Palacios                          9%E            Hercules,Seguros
+0-C   90 06 Nuria Mas                                9%E            Caprabo,Alimentacion
+P01   12 14 Paula Cabos                              10%G           Abierta, Sin Dep�sito
+P02   12 15 Juan Tenorio                             10%G           Abierta, Sin Dep�sito
+P03   15 01 Jorge Salas                              10%G           Abierta, Con Dep�sito
+P04   15 02 Jaime Rodriguez                          10%G           Abierta, Con Dep�sito
+P05   15 03 Nestor Crespo                            10%G           Abierta, Con Dep�sito
+P06   15 04 Maria Gutierrez                          10%G           Cerrada, Sin Dep�sito
+P07   15 10 Pedro Navarra                            10%G           Cerrada, Sin Dep�sito
+P08   15 11 Sergio Briban                            10%G           Cerrada, Sin Dep�sito
+P09   15 12 Carlos Escudero                          10%G           Cerrada, Sin Dep�sito
+P10   15 13 Ruben Palencia                           10%G           Cerrada, Sin Dep�sito
+------------------------------------------------------------------------------------------------------------
+13 propiedades total

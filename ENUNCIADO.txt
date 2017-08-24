@@ -1,0 +1,250 @@
+ENUNCIADO
+=========
+
+Se trata de realizar un programa (comunidad) que permita llevar un control, simple, de los gastos de una comunidad de 
+propietarios (consideraremos el caso de un edificio, con sus servicios). 
+
+Para ello, se dispone:
+- En primer lugar, de la descripción de los datos de la comunidad y su forma de funcionar.
+- En segundo lugar, de los gastos producidos durante un periodo de tiempo (por ejemplo, un año).
+
+A partir de ambas informaciones, será posible realizar la distribución de los gastos entre los diversos propietarios.
+
+DESCRIPCION DE LOS ARCHIVOS
+==========================
+
+El archivo comunidad.txt
+========================
+
+El archivo “comunidad.txt” está formado por un conjunto de líneas de texto, con diferente significado.
+
+Las líneas que comienzan por punto ( . ) son comentarios (se ignoran) 
+	.Esta línea que comienza por punto es un comentario
+ 
+Las líneas que comienzan por # marcan inicio de sección
+	
+1. Datos de la comunidad  (#Comunidad)
+--------------------------------------
+Contiene los datos generales de la comunidad. 
+Esta sección incluye tres datos generales: 
+Identificación ; Nombre ; Poblacion
+
+Ejemplo:  
+	#Comunidad
+	01;Trebol;La Paz 
+
+2. Datos sobre las zonas de reparto de gastos de la comunidad (#Zona)
+---------------------------------------------------------------------
+
+Este apartado incluye tres datos generales:   
+- Identificación ; Nombre ; Tipo de reparto
+
+Ejemplo: 
+	#Zona
+	E;Escalera;P
+	G;Garaje;I
+	C;Zona común;I 
+
+En este ejemplo, se definen 3 zonas (Escalera, Garaje, Zona Común)
+No obstante, el diseño de la aplicación debe prever la definición de más zonas.
+
+Puede haber dos tipos de reparto de gastos :  
+- Proporcional (P): Los gastos se reparten según un coeficiente establecido para cada miembro en el momento de 
+constituir la comunidad (generalmente, este coeficiente es proporcional a los metros cuadrados de cada vivienda). 
+- Igualitario (I): Los gastos se reparten a partes iguales entre todos los miembros de la comunidad, 
+independientemente de su coeficiente. Si por ejemplo, en total hay 20 propiedades en la zona garaje y el reparto 
+de ésta se establece como igualitario, a cada una de las propiedades le corresponde una cuota de 100%/20 = 5% 
+
+El número de propiedades de cada zona se establecerá en el momento de la lectura del  fichero comunidad. Si el resultado
+ de la división contiene decimales, éstos se eliminaran mediante redondeo al alza.
+ 
+ Siguiendo estos criterios, en el ejemplo anterior: 
+- a los gastos de la zona “Escalera” se designa el tipo de reparto proporcional (P).
+- a los gastos de la  zona “Garaje” se designa el tipo de reparto igualitario (I).
+- a los gastos de la zona “Zona Común” se designa también el tipo de reparto igualitario (I).
+
+Las zonas se caracterizan por: 
+- Permitir clasificar los gastos con un cierto criterio que permitirá, a su vez, un cálculo más ajustado del reparto de 
+gastos entre los diferentes propietarios. 
+- No ser excluyentes entre sí (es decir, una propiedad puede pertenecer a una o más zonas) 
+- Deberían ser completas, es decir, la suma de los porcentajes de todas las propiedades  pertenecientes a una zona 
+determinada deberían sumar siempre, como mínimo, 100. En todo caso, se va a suponer que la información introducida ya 
+cumple esta condición y no se debe comprobar este hecho.
+
+Posteriormente, a cada propiedad se indica a qué tipo de zona pertenece pudiéndose calcular, por  tanto, el reparto de 
+dichos gastos entre las propiedades participantes de cada zona.
+
+3. Datos sobre las propiedades (#Propiedad)
+-------------------------------------------
+
+Indica las diferentes propiedades que incluye la comunidad (pisos, locales, garajes, ...) con sus características.
+
+Ejemplo: 
+
+#Propiedad
+L;0-A;80;01;E-10;Banco Mundial;Banca
+L;0-B;80;02;E-10;Hercules;Seguros
+...
+D;1-A;90;05;E-12,C-12;VH;3
+D;1-B;90;06;E-12,C-12;VNH;4
+...
+G;P01;12;05;G-10;A;S
+G;P02;12;05;G-10;C;N
+... 
+  
+La información sobre las propiedades será variable dependiendo del tipo que sean.  De cada propiedad 
+(independientemente de su tipo) tendremos una información común:
+tipo ; código propiedad ; m2 ; código propietario ; lista porcentajes zona ;
+
+donde:
+
+- tipo de propiedad: 
+	El primer carácter de la línea indica el tipo de propiedad.
+	Inicialmente, consideraremos sólo tres tipos de propiedades codificadas con una letra.
+	D : Departamentos (o viviendas en general)
+	L : Locales comerciales (oficinas, despachos profesionales, tiendas, ...)
+	G : Plaza de garaje (aparcamiento o parking)
+	No obstante, en el futuro podrían definirse más  	
+- código identificador (ejemplo: 1-A, 1-B, 2-A, ..., P01, P02, ...). 
+	Podemos suponer que como máximo ocupará 3 caracteres. 
+- código del propietario
+	Podemos suponer que como máximo ocupará 3 caracteres.
+- metros cuadrados que ocupa (sin decimales) 
+- lista porcentajes respecto las zonas a las que pertenece
+	Indica, según los estatutos de la comunidad, el porcentaje de cada zona que supone cada propiedad. 
+	Se utilizan sólo en el caso de reparto Proporcional.
+	Se expresa de la forma z1-mm,z2-nn donde z1 y z2 corresponde a códigos de zona de
+	reparto y donde mm y nn corresponden al porcentaje de la zona (sin decimales, de 1 a 100).
+	Se considera que como máximo pertenecerá a tres zonas.
+	Los porcentajes de varias zonas se separan con coma.
+	En el ejemplo E-10,C-9 expresa un 10% de la zona de escalera, y un 9% en la zona común. 	
+
+La información específica para cada tipo de propiedad se añade a partir del quinto parámetro:  
+- si es departamento: 
+	* VH / VNH (vivienda habitual o vivienda no habitual) ; Número de dormitorios
+	Ejemplo (vivienda habitual con 3 dormitorios): 
+	D;1-A;90;05;E-12,C-12;VH;3 
+- si es local comercial
+	* nombre comercial ; actividad (peluquería, banco, oficina, ...)
+	Ejemplo (local comercial “Banco Mundial” y dedicado a la actividad “Banca”): 
+	L;0-A;80;01;E-10;Banco Mundial;Banca 
+- si es plaza de garaje
+	* abierta / cerrada ; S/N (si tiene depósito o no) 
+	Ejemplo (Plaza de garaje Abierta y Con depósito): 
+	G;P01;12;05;G-10;A;S 
+
+4. Datos sobre los propietarios (#Propietario)
+----------------------------------------------
+
+
+Lista de propietarios, que contiene su información básica.
+De cada propietario guardaremos: 
+- nombre ; población completa; email 
+Se considerará que todos estos campos pueden ocupar como máximo 40 caracteres. 
+Ejemplo: 
+
+	#Propietario
+	01;Jorge Salas;Tupuraya (Cochabamba);jsalas@dominio.com
+	02;Jaime Rodriguez;Sopocachi (La paz);jrodriguez@dominio.com 
+	
+El archivo “gastos.txt”
+======================
+
+Contendrá una lista de gastos (“gastos.txt”) del ejercicio indicando a qué zona se imputan cada uno de ellos. Se indica: 
+- id gasto ; descripcion ; importe ; zona de reparto
+
+Ejemplo:  
+	#Gastos 2015
+	ElE0801;Luz Escalera Enero;56;E
+	ElE0803;Luz Escalera Marzo;58;E
+	ElG0801;Luz Garaje Enero;52;G
+	AgC0803;Agua Zona Comun Marzo;150;C 
+
+Aplicación
+==========
+
+La aplicación realizará el siguiente proceso: 
+	1. Leer los datos de entrada (comunidad.txt y gastos.txt)
+	2. Una vez leídos y tratados ambos archivos, debe generar las siguientes salidas en archivo:  
+	“resumen.txt”, “propiedades.txt” , “propietarios.txt” , “cuotas.txt”.
+ 
+a) El fichero “resumen.txt” tiene el siguiente formato a seguir:
+
+ESTADÍSTICAS:
+
+Comunidad: 01 Trebol
+Numero Zonas       : 3
+Numero Propiedades : 20
+Numero Propietarios: 16
+Numero Gastos      : 40  
+
+b) El fichero “propiedades.txt” tiene el siguiente formato a seguir: 
+
+PROPIEDADES:
+
+Cod   m2   C. Nombre Propietario       Cuotas         Informacion adicional
+------------------------------------------------------------------------------- 
+3-A   80   04 Maria Gutierrez          12%E,12%C      Viv. No Habitual, 3 dorm. 
+...
+P06   15   04 Maria Gutierrez          10%G           Abierta, con Depósito
+-------------------------------------------------------------------------------
+20 propiedades total
+
+
+c) El fichero “propietarios.txt” tiene el siguiente formato a seguir: 
+
+
+PROPIETARIOS:
+
+
+C. Nombre Propietario        Email                  Propiedades 
+-----------------------------------------------------------------------------
+04 Maria Gutierrez           mgutierrez@uoc.edu     0-A, P06
+...
+-----------------------------------------------------------------------------
+ 16 propietarios total 
+
+La última columna corresponde a la lista de las propiedades (separadas con coma) de este
+propietario.
+
+
+d) El fichero “cuotas.txt” tiene el siguiente formato a seguir, dividido en dos partes: 
+
+
+CUOTAS POR PROPIEDADES:
+
+
+                          Porcentajes     Importes    
+CPd  Nombre Propietario     %E  %C  %G       E.         C.         G.     Total    
+----------------------------------------------------------------------------------
+0-A  Maria Gutierrez        10  10   0    1250.00    1000.00    1120.00    3370.00 
+...
+----------------------------------------------------------------------------------
+ 20 propiedades            100 100 100  999999.99  999999.99  999999.99  999999.99 
+
+
+
+
+CUOTAS POR PROPIETARIOS:
+
+
+                          Porcentajes   Importes    
+CP  Nombre Propietario     %E  %C  %G       E.         C.         G.     Total    
+----------------------------------------------------------------------------------
+04  Maria Gutierrez        10  10  10    1250.00    1000.00    1120.00    3370.00 
+...
+----------------------------------------------------------------------------------
+ 16 propietarios          100 100 100  999999.99  999999.99  999999.99  999999.99
+ 
+En la primera parte (Cuotas por propiedades), para cada propiedad se indica sus porcentajes y cálculos de cuota. 
+En la segunda parte (Cuotas por propietario), se acumulan las cuotas de todas las propiedades de un propietario.
+
+Por otro lado, en general se tomarán las siguientes decisiones: 
+	- Los porcentajes se consideran sin decimales. 
+		En caso que la operación indique que disponga de un decimal, entonces las unidades se
+		redondearán al alza (ejemplo: si porcentaje es 10.3, pasará a 11). 
+	- Los importes se consideran con 2 decimales (redondeados superiormente).
+
+
+
+ 

@@ -1,0 +1,19 @@
+C. Nombre Propietario                       Email                                    Propiedades         
+---------------------------------------------------------------------------------------------------------
+01 Jorge Salas                              jsalas@dominio.com                       P03                  
+02 Jaime Rodriguez                          jrodriguez@dominio.com                   P04                  
+03 Nestor Crespo                            ncrespo@dominio.com                      P05                  
+04 Maria Gutierrez                          mgutierrez@dominio.com                   0-A, P06             
+05 Miguel Palacios                          mpalacios@dominio.com                    0-B                  
+06 Nuria Mas                                nmas@dominio.com                         0-C                  
+07 Ricardo Torres                           rtorres@dominio.com                                           
+08 Tomas Asensio                            tasensio@dominio.com                                          
+09 Enrique Alos                             ealos@dominio.com                                             
+10 Pedro Navarra                            pnavarra@dominio.com                     P07                  
+11 Sergio Briban                            sbriban@dominio.com                      P08                  
+12 Carlos Escudero                          cescudero@dominio.com                    P09                  
+13 Ruben Palencia                           rpalencia@dominio.com                    P10                  
+14 Paula Cabos                              pcabos@dominio.com                       P01                  
+15 Juan Tenorio                             jtenorio@dominio.com                     P02                  
+---------------------------------------------------------------------------------------------------------
+15 propietarios total

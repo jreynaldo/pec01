@@ -1,0 +1,23 @@
+Cod  m2  C. Nombre Propietario                       Cuotas         Informacion Adicional                   
+------------------------------------------------------------------------------------------------------------
+0-A   80 04 Maria Gutierrez                          8%E            Banco Mundial,Banca
+0-B   90 05 Miguel Palacios                          9%E            Hercules,Seguros
+1-A   90 07 Ricardo Torres                           12%C,9%E       Viv. Habitual, 2 dorm.
+0-C   90 06 Nuria Mas                                9%E            Caprabo,Alimentacion
+1-B  100 08 Tomas Asensio                            14%C,10%E      Viv. Habitual, 3 dorm.
+2-A  150 01 Jorge Salas                              20%C,15%E      Viv. Habitual, 4 dorm.
+1-C  100 09 Enrique Alos                             14%C,10%E      Viv. No Habitual, 3 dorm.
+2-B  150 02 Jaime Rodriguez                          20%C,15%E      Viv. Habitual, 4 dorm.
+2-C  150 03 Nestor Crespo                            20%C,15%E      Viv. No Habitual, 4 dorm.
+P10   15 13 Ruben Palencia                           10%G           Cerrada, Sin depósito
+P01   12 14 Paula Cabos                              10%G           Abierta, Sin depósito
+P03   15 01 Jorge Salas                              10%G           Abierta, Con depósito
+P02   12 15 Juan Tenorio                             10%G           Abierta, Sin depósito
+P05   15 03 Nestor Crespo                            10%G           Abierta, Con depósito
+P04   15 02 Jaime Rodriguez                          10%G           Abierta, Con depósito
+P07   15 10 Pedro Navarra                            10%G           Cerrada, Sin depósito
+P06   15 04 Maria Gutierrez                          10%G           Cerrada, Sin depósito
+P09   15 12 Carlos Escudero                          10%G           Cerrada, Sin depósito
+P08   15 11 Sergio Briban                            10%G           Cerrada, Sin depósito
+------------------------------------------------------------------------------------------------------------
+19 propiedades total

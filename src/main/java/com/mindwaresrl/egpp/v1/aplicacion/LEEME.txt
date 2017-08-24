@@ -1,0 +1,16 @@
+Las grandes responsabilidades
+
+* Serializacion/Deserializacion (guardar, leer de disco)
+
+* Generar reporte resumen
+* Generar reporte propiedades
+* Generar reporte propietarios
+* Generar reporte cuotas
+
+Conceptos y Relaciones
+* Los propietarios y tiene propiedades; cada propiedad puede tener un porcentaje de las zonas de reparto.
+ 
+
+
+
+
