@@ -21,37 +21,39 @@ public class RepositorioPropietario extends RepositorioAbstracto<Propietario> {
 	@Override
 	protected List<String> obtenerLineas(BufferedReader reader) throws IOException {
 		List<String> lineasSeccion = new ArrayList<String>();
-		
+
 		String linea = null;
 		while ( (linea = reader.readLine()) != null ) {
-			
-		   if (linea.startsWith("#Propietario") ) {
-			   while  ( (linea = reader.readLine()) != null ) {
-				   if ( StringUtils.isBlank(linea) ) {
-					   break;
-				   } else if (linea.startsWith(".") ) {
-					   continue;
-				   }
-				   lineasSeccion.add(linea);
-			   }
-			   break;
-		   }
+
+			if (linea.startsWith("#Propietario") ) {
+				while  ( (linea = reader.readLine()) != null ) {
+					if ( StringUtils.isBlank(linea) ) {
+						break;
+					} else if (linea.startsWith(".") ) {
+						continue;
+					}
+					lineasSeccion.add(linea);
+				}
+				break;
+			}
 		}
-		
+
 		return lineasSeccion;
 	}
-	//TODO Este método recibe una linea de la seccion #Propietario del archivo comunidad.txt
-	//Deberá completarlo para que dada una linea retorne un objeto de la clase Propietario
+	//TODO Este mï¿½todo recibe una linea de la seccion #Propietario del archivo comunidad.txt
+	//Deberï¿½ completarlo para que dada una linea retorne un objeto de la clase Propietario
 	//P/Ej: 01;Jorge Salas;Sopocachi (La Paz);jsalas@dominio.com
 	@Override
 	Propietario convertirRegistro(String registro) {
-		
-		return new Propietario(" ", " ", " ", " ");
+
+		String[] regParts = registro.split(SEPARADOR);
+
+		return new Propietario(regParts[0],regParts[1], regParts[2], regParts[3]);
 	}
-	
+
 	@Override
 	protected String getNombreArchivo() {
 		return "comunidad.txt";
 	}
-		
+
 }

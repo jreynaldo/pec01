@@ -20,33 +20,35 @@ public class RepositorioComunidad extends RepositorioAbstracto<Comunidad> {
 	@Override
 	protected List<String> obtenerLineas(BufferedReader reader) throws IOException {
 		List<String> lineasSeccion = new ArrayList<String>();
-		
+
 		String linea = null;
 		while ( (linea = reader.readLine()) != null ) {
-			
-		   if (linea.startsWith("#Comunidad") ) {
-			   while  ( (linea = reader.readLine()) != null ) {
-				   if ( StringUtils.isBlank(linea) ) {
-					   break;
-				   } else if (linea.startsWith(".") ) {
-					   continue;
-				   }
-				   lineasSeccion.add(linea);
-			   }
-			   break;
-		   }
+
+			if (linea.startsWith("#Comunidad") ) {
+				while  ( (linea = reader.readLine()) != null ) {
+					if ( StringUtils.isBlank(linea) ) {
+						break;
+					} else if (linea.startsWith(".") ) {
+						continue;
+					}
+					lineasSeccion.add(linea);
+				}
+				break;
+			}
 		}
-		
+
 		return lineasSeccion;
 	}
-	
-	//TODO Este método recibe una linea de la seccion #Comunidad del archivo comunidad.txt 
-	//Deberá completarlo para que dada una linea retorne una instancia de la clase Comunidad. 
+
+	//TODO Este mï¿½todo recibe una linea de la seccion #Comunidad del archivo comunidad.txt
+	//Deberï¿½ completarlo para que dada una linea retorne una instancia de la clase Comunidad.
 	//Ej: "01;Trebol;Temporal"
 	@Override
 	Comunidad convertirRegistro(String registro) {
 
-		return new Comunidad("", "", "");
+		String[] regPart = registro.split(SEPARADOR);
+
+		return new Comunidad(regPart[0],regPart[1], regPart[2]);
 	}
 
 
@@ -54,5 +56,5 @@ public class RepositorioComunidad extends RepositorioAbstracto<Comunidad> {
 	protected String getNombreArchivo() {
 		return "comunidad.txt";
 	}
-	
+
 }
