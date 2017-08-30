@@ -108,12 +108,10 @@ public class RepositorioPropiedad extends RepositorioAbstracto<Propiedad> {
 	// P/ej. D;1-A;90;07;E-9,C-12;VH;2
 	private Propiedad crearDepartamento(String[] valores) {
 
-		
+		return new Departamento(valores[1], new Double(valores[2]), this.repositorioPropietario.recuperar(valores[3]),
+				convertirZonaReparto(valores[4]), TipoVivienda.convert(valores[5]), new Integer(valores[6]));
 
-		return new Departamento(valores[1], new Double(valores[2]),
-				this.repositorioPropietario.recuperar(valores[3]), convertirZonaReparto(valores[4]), TipoVivienda.convert(valores[5]), new Integer(valores[6]));
-
-			}
+	}
 
 	// TODO Este metodo recibe un arreglo con los campos de un local comercial
 	// incluyendo una referencia al propietario y a los porcentajes de la zona de
@@ -122,9 +120,9 @@ public class RepositorioPropiedad extends RepositorioAbstracto<Propiedad> {
 	// P/ej. L;0-A;80;04;E-8;Banco Mundial;Banca
 	private Propiedad crearLocalComercial(String[] valores) {
 
-		return new LocalComercial(valores[1], new Double(valores[2]),
-				this.repositorioPropietario.recuperar(valores[3]), convertirZonaReparto(valores[4]), valores[5], valores[6]);
-		
+		return new LocalComercial(valores[1], new Double(valores[2]), this.repositorioPropietario.recuperar(valores[3]),
+				convertirZonaReparto(valores[4]), valores[5], valores[6]);
+
 	}
 
 	// TODO Este metodo recibe un arreglo con los campos de plaza garaje
@@ -134,9 +132,9 @@ public class RepositorioPropiedad extends RepositorioAbstracto<Propiedad> {
 	// P/ej. G;P01;12;14;G-10;A;N
 	private Propiedad crearPlazaGaraje(String[] valores) {
 
-		return new PlazaGaraje(valores[1], new Double(valores[2]),
-				this.repositorioPropietario.recuperar(valores[3]), convertirZonaReparto(valores[4]),TipoGaraje.convert(valores[5]), valores[6]=="S"? true:false);
-		
+		return new PlazaGaraje(valores[1], new Double(valores[2]), this.repositorioPropietario.recuperar(valores[3]),
+				convertirZonaReparto(valores[4]), TipoGaraje.convert(valores[5]), valores[6] == "S" ? true : false);
+
 	}
 
 }

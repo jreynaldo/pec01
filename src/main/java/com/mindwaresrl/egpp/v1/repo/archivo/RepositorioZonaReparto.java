@@ -14,22 +14,24 @@ import static com.mindwaresrl.egpp.v1.core.ZonaReparto.*;
 
 public class RepositorioZonaReparto extends RepositorioAbstracto<ZonaReparto> {
 
-	public RepositorioZonaReparto(){
+	public RepositorioZonaReparto() {
 		obtenerRegistros();
 	}
-	//TODO Este metodo debe obtener las lineas de la seccion #Zona del archivo comunidad.txt
+
+	// TODO Este metodo debe obtener las lineas de la seccion #Zona del archivo
+	// comunidad.txt
 	@Override
 	List<String> obtenerLineas(BufferedReader reader) throws IOException {
 		List<String> lineasSeccion = new ArrayList<String>();
 
 		String linea = null;
-		while ( (linea = reader.readLine()) != null ) {
+		while ((linea = reader.readLine()) != null) {
 
-			if (linea.startsWith("#Zona") ) {
-				while  ( (linea = reader.readLine()) != null ) {
-					if ( StringUtils.isBlank(linea) ) {
+			if (linea.startsWith("#Zona")) {
+				while ((linea = reader.readLine()) != null) {
+					if (StringUtils.isBlank(linea)) {
 						break;
-					} else if (linea.startsWith(".") ) {
+					} else if (linea.startsWith(".")) {
 						continue;
 					}
 					lineasSeccion.add(linea);
@@ -40,14 +42,17 @@ public class RepositorioZonaReparto extends RepositorioAbstracto<ZonaReparto> {
 
 		return lineasSeccion;
 	}
-	//TODO Este metodo recibe una linea de la seccion #Zona del archivo comunidad.txt
-	//Deber� completarlo para que dada una linea retorne una instancia de la clase ZonaReparto.
-	//P/Ej: E;Escalera;P
+
+	// TODO Este metodo recibe una linea de la seccion #Zona del archivo
+	// comunidad.txt
+	// Deber� completarlo para que dada una linea retorne una instancia de la clase
+	// ZonaReparto.
+	// P/Ej: E;Escalera;P
 	@Override
 	ZonaReparto convertirRegistro(String registro) {
 		String[] registros = registro.split(SEPARADOR);
 
-		return new ZonaReparto(registros[0],registros[1],TipoReparto.convert(registros[2]));
+		return new ZonaReparto(registros[0], registros[1], TipoReparto.convert(registros[2]));
 	}
 
 	@Override

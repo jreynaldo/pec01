@@ -13,7 +13,7 @@ import static com.mindwaresrl.egpp.v1.core.Comunidad.*;
 
 public class RepositorioComunidad extends RepositorioAbstracto<Comunidad> {
 
-	public RepositorioComunidad(){
+	public RepositorioComunidad() {
 		obtenerRegistros();
 	}
 
@@ -22,13 +22,13 @@ public class RepositorioComunidad extends RepositorioAbstracto<Comunidad> {
 		List<String> lineasSeccion = new ArrayList<String>();
 
 		String linea = null;
-		while ( (linea = reader.readLine()) != null ) {
+		while ((linea = reader.readLine()) != null) {
 
-			if (linea.startsWith("#Comunidad") ) {
-				while  ( (linea = reader.readLine()) != null ) {
-					if ( StringUtils.isBlank(linea) ) {
+			if (linea.startsWith("#Comunidad")) {
+				while ((linea = reader.readLine()) != null) {
+					if (StringUtils.isBlank(linea)) {
 						break;
-					} else if (linea.startsWith(".") ) {
+					} else if (linea.startsWith(".")) {
 						continue;
 					}
 					lineasSeccion.add(linea);
@@ -40,17 +40,18 @@ public class RepositorioComunidad extends RepositorioAbstracto<Comunidad> {
 		return lineasSeccion;
 	}
 
-	//TODO Este m�todo recibe una linea de la seccion #Comunidad del archivo comunidad.txt
-	//Deber� completarlo para que dada una linea retorne una instancia de la clase Comunidad.
-	//Ej: "01;Trebol;Temporal"
+	// TODO Este m�todo recibe una linea de la seccion #Comunidad del archivo
+	// comunidad.txt
+	// Deber� completarlo para que dada una linea retorne una instancia de la clase
+	// Comunidad.
+	// Ej: "01;Trebol;Temporal"
 	@Override
 	Comunidad convertirRegistro(String registro) {
 
 		String[] registros = registro.split(SEPARADOR);
 
-		return new Comunidad(registros[0],registros[1], registros[2]);
+		return new Comunidad(registros[0], registros[1], registros[2]);
 	}
-
 
 	@Override
 	protected String getNombreArchivo() {

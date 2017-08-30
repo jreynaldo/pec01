@@ -11,10 +11,9 @@ import com.mindwaresrl.egpp.v1.core.Propietario;
 
 import static com.mindwaresrl.egpp.v1.core.Propietario.*;
 
-
 public class RepositorioPropietario extends RepositorioAbstracto<Propietario> {
 
-	public RepositorioPropietario(){
+	public RepositorioPropietario() {
 		obtenerRegistros();
 	}
 
@@ -23,13 +22,13 @@ public class RepositorioPropietario extends RepositorioAbstracto<Propietario> {
 		List<String> lineasSeccion = new ArrayList<String>();
 
 		String linea = null;
-		while ( (linea = reader.readLine()) != null ) {
+		while ((linea = reader.readLine()) != null) {
 
-			if (linea.startsWith("#Propietario") ) {
-				while  ( (linea = reader.readLine()) != null ) {
-					if ( StringUtils.isBlank(linea) ) {
+			if (linea.startsWith("#Propietario")) {
+				while ((linea = reader.readLine()) != null) {
+					if (StringUtils.isBlank(linea)) {
 						break;
-					} else if (linea.startsWith(".") ) {
+					} else if (linea.startsWith(".")) {
 						continue;
 					}
 					lineasSeccion.add(linea);
@@ -40,15 +39,18 @@ public class RepositorioPropietario extends RepositorioAbstracto<Propietario> {
 
 		return lineasSeccion;
 	}
-	//TODO Este m�todo recibe una linea de la seccion #Propietario del archivo comunidad.txt
-	//Deber� completarlo para que dada una linea retorne un objeto de la clase Propietario
-	//P/Ej: 01;Jorge Salas;Sopocachi (La Paz);jsalas@dominio.com
+
+	// TODO Este m�todo recibe una linea de la seccion #Propietario del archivo
+	// comunidad.txt
+	// Deber� completarlo para que dada una linea retorne un objeto de la clase
+	// Propietario
+	// P/Ej: 01;Jorge Salas;Sopocachi (La Paz);jsalas@dominio.com
 	@Override
 	Propietario convertirRegistro(String registro) {
 
 		String[] registros = registro.split(SEPARADOR);
 
-		return new Propietario(registros[0],registros[1], registros[2], registros[3]);
+		return new Propietario(registros[0], registros[1], registros[2], registros[3]);
 	}
 
 	@Override
