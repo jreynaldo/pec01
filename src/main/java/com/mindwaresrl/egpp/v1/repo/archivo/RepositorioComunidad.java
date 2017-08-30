@@ -46,9 +46,9 @@ public class RepositorioComunidad extends RepositorioAbstracto<Comunidad> {
 	@Override
 	Comunidad convertirRegistro(String registro) {
 
-		String[] regPart = registro.split(SEPARADOR);
+		String[] registros = registro.split(SEPARADOR);
 
-		return new Comunidad(regPart[0],regPart[1], regPart[2]);
+		return new Comunidad(registros[0],registros[1], registros[2]);
 	}
 
 

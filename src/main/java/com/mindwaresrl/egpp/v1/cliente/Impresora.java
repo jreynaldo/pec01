@@ -16,10 +16,10 @@ import com.mindwaresrl.egpp.v1.aplicacion.casodeuso.dto.ReportePropietario;
 import com.mindwaresrl.egpp.v1.aplicacion.casodeuso.dto.ReporteResumen;
 
 public class Impresora {
-	public static final String ARCHIVO_RESUMEN = "resumen-v1.txt";
-	public static final String ARCHIVO_PROPIEDADES = "propiedades-v1.txt";
-	public static final String ARCHIVO_PROPIETARIOS = "propietarios-v1.txt";
-	public static final String ARCHIVO_CUOTAS = "cuotas-v1.txt";
+	public static final String ARCHIVO_RESUMEN = "resumen-v2.txt";
+	public static final String ARCHIVO_PROPIEDADES = "propiedades-v2.txt";
+	public static final String ARCHIVO_PROPIETARIOS = "propietarios-v2.txt";
+	public static final String ARCHIVO_CUOTAS = "cuotas-v2.txt";
 	
 	public void imprimirResumen(ReporteResumen reporteResumen) {
 		try (PrintWriter fichero = new PrintWriter(new FileWriter(ARCHIVO_RESUMEN)) ){

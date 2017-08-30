@@ -46,9 +46,9 @@ public class RepositorioPropietario extends RepositorioAbstracto<Propietario> {
 	@Override
 	Propietario convertirRegistro(String registro) {
 
-		String[] regParts = registro.split(SEPARADOR);
+		String[] registros = registro.split(SEPARADOR);
 
-		return new Propietario(regParts[0],regParts[1], regParts[2], regParts[3]);
+		return new Propietario(registros[0],registros[1], registros[2], registros[3]);
 	}
 
 	@Override

@@ -21,16 +21,20 @@ public class Main {
 		Repositorio<Comunidad> repositorioComunidad = new RepositorioComunidad();
 		Repositorio<Propietario> repositorioPropietario = new RepositorioPropietario();
 		Repositorio<ZonaReparto> repositorioZonaReparto = new RepositorioZonaReparto();
+		
+		
 		Repositorio<Propiedad> repositorioPropiedad = new RepositorioPropiedad(repositorioZonaReparto, repositorioPropietario);
-		Repositorio<Gasto> repositorioGasto = new RepositorioGasto(repositorioZonaReparto);
+			Repositorio<Gasto> repositorioGasto = new RepositorioGasto(repositorioZonaReparto);
 		
 		CasoUsoCrearReporte casoUsoCrerReporte = new CasoUsoCrearReporteImpl(repositorioComunidad
 																			, repositorioPropietario 
 																			, repositorioZonaReparto
 																			, repositorioPropiedad
 																			, repositorioGasto
-																			);
+		
+				);
 		
 		Aplicacion.instancia.setCasoUsoCrearReporte(casoUsoCrerReporte);
+		
 	}
 }

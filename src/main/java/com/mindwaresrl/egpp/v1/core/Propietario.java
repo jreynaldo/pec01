@@ -65,7 +65,15 @@ public class Propietario implements Entidad {
 	public void setPropiedades(List<Propiedad> propiedades) {
 		this.propiedades = propiedades;
 	}
+
+	@Override
+	public String toString() {
+		return "Propietario [id=" + id + ", nombre=" + nombre + ", poblacion=" + poblacion + ", email=" + email
+				+ ", propiedades=" + propiedades + "]";
+	}
 	
+	
+
 	
 	
 }

@@ -45,9 +45,9 @@ public class RepositorioZonaReparto extends RepositorioAbstracto<ZonaReparto> {
 	//P/Ej: E;Escalera;P
 	@Override
 	ZonaReparto convertirRegistro(String registro) {
-		String[] regPart = registro.split(SEPARADOR);
+		String[] registros = registro.split(SEPARADOR);
 
-		return new ZonaReparto(regPart[0],regPart[1],TipoReparto.convert(regPart[2]));
+		return new ZonaReparto(registros[0],registros[1],TipoReparto.convert(registros[2]));
 	}
 
 	@Override
